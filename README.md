@@ -2,15 +2,15 @@
 
 <a href='https://ko-fi.com/A5071NK' target='_blank'><img height='32' style='border:0px;height:32px;' src='https://az743702.vo.msecnd.net/cdn/kofi1.png?v=a' border='0' alt='Buy Me a Coffee' /></a> 
 
-Ruby 2.3 introduced the safe navigation operator (`&.`), however I find that its syntax is too discrete an can be easy to miss when briefly scanning code. Instead I much prefer the syntax of `try` as it seems way more obvious and intentional.
+Ruby 2.3 introduced the safe navigation operator `&.`, however I find that its syntax is too discrete an can be easy to miss when briefly scanning code. Instead I much prefer the syntax of `try` as it seems way more obvious and intentional.
 
 This gem provides the ability to set alias(es) to the safe navigation operator. By default it is configured as the `try` method.
 
 <u>Features / Goals:</u>
 
-- Utilize the safe navigation operator (`&.`) while improving readability
+- Utilize the safe navigation operator `&.` while improving readability
 - Improve performance over other implementations such as the `ActiveSupport#try` method
-- Do not worry about most obscure arguments / syntax limitations if they cannot be avoided. Simplicity and speed is key.
+- Do not worry about most obscure syntax limitations if they cannot be avoided. Speed and simplicity is key.
 - The methods provided should always behave just like the safe navigation operator. If you need to retain the exact behaviour of ActiveSupport `try`, simply set your own custom method name(s) for FastTry. 
 - The only dependency is Ruby 2.3+. It does NOT require Rails /ActiveSupport anything else however it works great with it too!
 
@@ -43,15 +43,15 @@ str&.upcase&.downcase
 
 # Known Limitations
 
-Since one of the goals is simplicity and speed. As such we may not handle some obscure syntax. Please create a PR or Issue if you find a limitation that should be documented here.
+Our main goal is speed and simplicity. As such we may not handle some obscure syntax. Please create a PR or Issue if you find a limitation that should be documented here.
 
 - Apparently safe navigation does not work with class methods so this does not either. Major bummer.
 
-# Differences between `ActiveSupport#try` and `FastTry#try`
+# Differences between FastTry and ActiveSupport#try
 
 It is not our goal to maintain any consistency with the ActiveSupport version of the `try` method. I do however want to maintain a simple list of the differences. Please create a PR or Issue if you find a difference that should be documented here.
 
-- TBD
+- Nothing reported yet
 
 # Credits
 
@@ -63,12 +63,12 @@ Implementation originally based on this StackOverflow answer by <i>engineersmnky
 
 # Benchmarks
 
-As tested on master branch. See benchmark: test/benchmarks.rb
+As tested on master branch. See benchmark: `test/benchmarks.rb`
 
 ```
 Results when method is found
        user     system      total        real
-                    FastTry  0.430000   0.020000   0.450000 (  0.456562)
+               FastTry  0.430000   0.020000   0.450000 (  0.456562)
        Safe Navigation  0.070000   0.000000   0.070000 (  0.069512)
      ActiveSupport try  0.860000   0.100000   0.960000 (  0.959851)
          Check for nil  0.070000   0.000000   0.070000 (  0.074626)
@@ -96,7 +96,7 @@ Results when method is found
 
   Results when method is not found
          user     system      total        real
-                      FastTry  0.230000   0.000000   0.230000 (  0.227693)
+               FastTry  0.230000   0.000000   0.230000 (  0.227693)
        Safe Navigation  0.060000   0.000000   0.060000 (  0.065258)
      ActiveSupport try  0.300000   0.000000   0.300000 (  0.292541)
          Check for nil  0.060000   0.000000   0.060000 (  0.063945)

@@ -9,8 +9,8 @@ Gem::Specification.new do |s|
   s.email       = 'westonganger@gmail.com'
   s.homepage 	= 'https://github.com/westonganger/fast_try'
   
-  s.summary     = "Fast Try Summary"
-  s.description = "Fast Try Description"
+  s.summary     = "Provides the ability to set alias(es) to the safe navigation operator in Ruby"
+  s.description = "Provides the ability to set alias(es) to the safe navigation operator in Ruby"
   s.files = Dir.glob("{lib/**/*}") + %w{ LICENSE README.md Rakefile CHANGELOG.md }
   s.test_files  = Dir.glob("{test/**/*}")
   s.require_path = 'lib'

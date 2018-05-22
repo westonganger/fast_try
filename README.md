@@ -4,14 +4,14 @@
 
 Ruby 2.3 introduced the safe navigation operator (`&.`), however I find that its syntax is too discrete an can be easy to miss when briefly scanning code. Instead I much prefer the syntax of `try` as it seems way more obvious and intentional.
 
-This gem provides the ability to set alias(es) to the safe navigation operator. By default it is configured as `FastTry.methods = [:try]`. The method(s) are not applied until the following file is required: `require 'fast_try/apply'`
+This gem provides the ability to set alias(es) to the safe navigation operator. By default it is configured as the `try` method.
 
 <u>Features / Goals:</u>
 
 - Utilize the safe navigation operator (`&.`) while improving readability
 - Improve performance over other implementations such as the `ActiveSupport#try` method
 - Do not worry about most obscure arguments / syntax limitations if they cannot be avoided. Simplicity and speed is key.
-- The methods provided should always behave just like the safe navigation operator. If you need to retain the ActiveSupport `try` methods exact behaviours, simply set your own custom method name(s) for this new method. 
+- The methods provided should always behave just like the safe navigation operator. If you need to retain the exact behaviour of ActiveSupport `try`, simply set your own custom method name(s) for FastTry. 
 - The only dependency is Ruby 2.3+. It does NOT require Rails /ActiveSupport anything else however it works great with it too!
 
 # Setup
@@ -27,7 +27,7 @@ gem 'fast_try', require: ['fast_try', 'fast_try/apply'], git: 'https://github.co
 If you want change the name(s) of the methods to create/overwrite just add an initializer. If using Rails, simply run `rails generate fast_try:create_initializer`
 
 ```ruby
-FastTry.methods = [:try, :custom_try, try!]
+FastTry.method_names = [:try, :custom_try, :try!]
 
 require 'fast_try/apply'
 ```

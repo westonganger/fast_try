@@ -5,7 +5,7 @@ require "active_support/all"
 GC.disable
 
 require 'fast_try'
-FastTry.the_methods = [:custom_try]
+FastTry.method_names = [:custom_try]
 require 'fast_try/apply'
 
 BENCHMARK_TYPES = ['bm', 'memory']

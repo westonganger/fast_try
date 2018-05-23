@@ -1,17 +1,17 @@
-# Fast Try <a href='https://travis-ci.org/westonganger/fast_try' target='_blank'><img src='https://api.travis-ci.org/westonganger/fast_try.svg?branch=master' border='0' alt='Build Status' /></a> 
+# FastTry <a href='https://travis-ci.org/westonganger/fast_try' target='_blank'><img src='https://api.travis-ci.org/westonganger/fast_try.svg?branch=master' border='0' alt='Build Status' /></a> 
 
 <a href='https://ko-fi.com/A5071NK' target='_blank'><img height='32' style='border:0px;height:32px;' src='https://az743702.vo.msecnd.net/cdn/kofi1.png?v=a' border='0' alt='Buy Me a Coffee' /></a> 
 
 Ruby 2.3 introduced the safe navigation operator `&.`, however I find that its syntax is too discrete an can be easy to miss when briefly scanning code. Instead I much prefer the syntax of `try` as it seems way more obvious and intentional.
 
-This gem provides the ability to set alias(es) to the safe navigation operator. By default it is configured as the `try` method.
+FastTry is a simple method wrapper to the safe navigation operator. By default it is configured as the `try` method.
 
 <u>Features / Goals:</u>
 
 - Utilize the safe navigation operator `&.` while improving readability
 - Improve performance over other implementations such as the `ActiveSupport#try` method
 - Do not worry about most obscure syntax limitations if they cannot be avoided. Speed and simplicity is key.
-- The methods provided should always behave just like the safe navigation operator. If you need to retain the exact behaviour of ActiveSupport `try`, simply set your own custom method name(s) for FastTry. 
+- The method provided should behave very similarly to the safe navigation operator. If you need to retain the exact behaviour of ActiveSupport `try`, simply set your own custom method name(s) for FastTry. 
 - The only dependency is Ruby 2.3+. It does NOT require Rails /ActiveSupport anything else however it works great with it too!
 
 # Setup
@@ -45,7 +45,7 @@ str&.upcase&.downcase
 
 Our main goal is speed and simplicity. As such we may not handle some obscure syntax. Please create a PR or Issue if you find a limitation that should be documented here.
 
-- Apparently safe navigation does not work with class methods so this does not either. Major bummer.
+- Apparently safe navigation does not work with class methods so this does not either. Ex. `Array&.bad_method` results in `NoMethodError`.
 
 # Differences between FastTry and ActiveSupport#try
 

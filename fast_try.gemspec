@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.name        = 'fast_try'
   s.version     =  FastTry::VERSION
   s.author	= "Weston Ganger"
-  s.email       = 'westonganger@gmail.com'
+  s.email       = 'weston@westonganger.com'
   s.homepage 	= 'https://github.com/westonganger/fast_try'
   
   s.summary     = "Provides the ability to set alias(es) to the safe navigation operator in Ruby"
